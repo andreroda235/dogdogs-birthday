@@ -3,9 +3,8 @@ import classes from './Page.module.css';
 
 const Page = ({children, className, gradient}) => {
 
-
     return (
-        <div className={'page ' + (gradient && classes['gradient-page']) + ' ' + className}>
+        <div className={classes.page + ' ' + (gradient && classes['gradient-page']) + ' ' + className}>
             {children}
         </div>
     );

@@ -1,7 +1,7 @@
 .flip-card {
     background-color: transparent;
-    width: 250px;
-    height: 150px;
+    width: 175px;
+    height: 115px;
     perspective: 1000px;
     border-radius: 10px;
   }
@@ -18,7 +18,8 @@
   }
   
   .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
+    /* transform: rotateY(180deg); */
+    cursor: pointer;
   }
   
   .flip-card-front, .flip-card-back {
@@ -39,13 +40,13 @@
   }
 
   .flip-card-front img{
-    width: 60px;
-    height: 90px;
+    width: 40px;
+    height: 70px;
   }
   
   .flip-card-back {
     border-radius: 10px;
     background-color: #ffffff;
-    color: white;
+    color: black;
     transform: rotateY(180deg);
   }
