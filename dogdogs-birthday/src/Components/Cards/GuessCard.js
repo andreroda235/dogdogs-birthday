@@ -1,15 +1,32 @@
 
 import { useState } from 'react';
-import QuestionMarkIcon from '../../Assets/question-mark.png';
 
 import classes from './GuessCard.module.css';
 
-const GuessCard = ({children, index, turned, disabled, onFlip, prize}) => {
+import QuestionMarkIcon from '../../Assets/Images/question-mark.png';
+import giftIcon from '../../Assets/Images/gift.png';
+import skullIcon from '../../Assets/Images/skull.png';
+import { useDispatch } from 'react-redux';
+import { attack, reward } from '../../Redux/gamestate-slice';
+
+const GIFT = 0;
+const ENEMY = -1;
+const ATTACK = 25;
+
+const GuessCard = ({index, turned, disabled, onFlip, prize, type}) => {
 
     const [isFlipped, setIsFlipped] = useState(false);
+    const dispatch = useDispatch();
 
     const flipCardHandler = () => {
-        setIsFlipped(true);
+        //make a queue for all the actions;
+        if(!isFlipped){
+            if(type === ENEMY)
+                dispatch(attack({damage: ATTACK}));
+            else if (type >= GIFT)
+                dispatch(reward());
+            setIsFlipped(true);
+        }
     };
 
     const styles = {
@@ -17,15 +34,15 @@ const GuessCard = ({children, index, turned, disabled, onFlip, prize}) => {
     }
 
     return (
-        <div class={classes["flip-card"]} 
+        <div className={classes["flip-card"]} 
             onClick={flipCardHandler}>
-            <div class={classes["flip-card-inner"]}
+            <div className={classes["flip-card-inner"]}
                 style={isFlipped ? styles : undefined}>
-                <div class={classes["flip-card-front"]}>
+                <div className={classes["flip-card-front"]}>
                     <img src={QuestionMarkIcon} alt="?"/>
                 </div>
-                <div class={classes["flip-card-back"]}>
-                    <p>{prize}</p>
+                <div className={classes["flip-card-back"]}>
+                    <img src={type === ENEMY ? skullIcon : giftIcon} alt={type}/>
                 </div>
             </div>
         </div>

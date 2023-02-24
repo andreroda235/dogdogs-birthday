@@ -39,8 +39,9 @@
     border: 10px solid var(--cardRed) ;
   }
 
-  .flip-card-front img{
-    width: 40px;
+  .flip-card-front img,
+  .flip-card-back img{
+    width: auto;
     height: 70px;
   }
   
