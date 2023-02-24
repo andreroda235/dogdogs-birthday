@@ -53,6 +53,7 @@ const HealthBar = () => {
     return (
         <div className={classes['health-bar']}>
             <div className={classes['health-bar-inner']}>
+                <div className={classes['health-background']}/>
                 <div id='healthbar' style={width !== undefined ? styles : {}} className={classes.health + ' ' + classes[getHealthColor(health)]}/>
                 <img src={healthbar} alt={health}/>
             </div>

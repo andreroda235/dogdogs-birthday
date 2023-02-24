@@ -16,6 +16,16 @@
     top: 0;
 }
 
+.health-background {
+    position: absolute;
+    width: 304px;
+    height: 100px;
+    top: 40px;
+    left: 165px;
+    z-index: -1;
+    background-color: rgb(87, 87, 87);
+}
+
 .health {
     position: absolute;
     width: 304px;
