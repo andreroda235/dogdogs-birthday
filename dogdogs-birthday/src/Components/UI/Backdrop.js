@@ -4,7 +4,7 @@ import classes from './Backdrop.module.css';
 
 const Backdrop = ({children}) => {
    return (
-    <div className={classes.backdrop}>{children}</div>
+      <div className={classes.backdrop}>{children}</div>
    );
 };
 

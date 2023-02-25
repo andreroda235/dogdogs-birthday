@@ -46,6 +46,5 @@ export const generateLevelMatrix = (rows, columns, enemies) => {
         }
 
     reshuffle(levelMatrix, rows, columns);
-    console.log(levelMatrix);
     return levelMatrix;
 };

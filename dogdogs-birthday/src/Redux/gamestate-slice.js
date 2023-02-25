@@ -5,6 +5,7 @@ const initialState = {
     health: 100,
     giftStreak: 0,
     enemyStreak: 0,
+    abilityCounter: 0,
     animationLayer_Card: undefined,
     animationLayer_Ability: undefined
 };
@@ -25,6 +26,7 @@ export const gameStateSlice = createSlice({
         attack(state, action) {
             state.enemyStreak++;
             state.giftStreak = 0;
+            state.abilityCounter = state.abilityCounter - 1 === 0 ? 0 : state.abilityCounter - 1;
             let remainingHealth = state.health - state.enemyStreak*action.payload.damage;
             if(remainingHealth < 0) remainingHealth = 0;
             state.health = remainingHealth;
@@ -33,6 +35,7 @@ export const gameStateSlice = createSlice({
         reward(state, action) {
             state.enemyStreak = 0;
             state.giftStreak++;
+            state.abilityCounter = Math.floor(state.giftStreak / 5);
         },
 
         /* animationType: ANIMATION_TYPE_CARDFLIP,

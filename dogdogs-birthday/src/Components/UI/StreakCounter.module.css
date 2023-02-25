@@ -1,0 +1,31 @@
+.streak-counter {
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    position: fixed;
+    margin: 1rem;
+}
+
+.container {
+    position: relative;
+    background-image: url(../../Assets/Images/combo-backgr.png);
+    width: 400px;
+    height: 347px;
+    /* left: -150px;
+    bottom: -150px; */
+}
+
+.numbers {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    left: 20px;
+}
+
+.numbers img {
+    height: 180px;
+    width: auto;
+}

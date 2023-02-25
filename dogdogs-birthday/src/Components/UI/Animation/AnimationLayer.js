@@ -14,7 +14,6 @@ const AnimationLayer = () => {
     const postAnimationFunction = useRef(undefined);
 
     const startAnimation = (data, postAnimationAction) => {
-        console.log(postAnimationAction);
         animationData.current = data;
         postAnimationFunction.current = postAnimationAction;
         setAnimationReady(true);

@@ -7,6 +7,8 @@ import classes from './GuessGame.module.css';
 import { generateLevelMatrix } from '../util/Level';
 import { useRef } from 'react';
 import AnimationLayer from '../Components/UI/Animation/AnimationLayer';
+import Abilities from '../Components/UI/Abilities/Abilities';
+import StreakCounter from '../Components/UI/StreakCounter';
 
 const prizes = [
     'Lorem Ipsum',
@@ -58,6 +60,7 @@ const GuessGame = () => {
             <AnimationLayer/>
             <UI>
                 <HealthBar/>
+                <Abilities/>
             </UI>
             <div className={classes['guess-game']}>
                 {levelMatrix.current.map((value) => (
@@ -68,7 +71,7 @@ const GuessGame = () => {
                 ))}
             </div>
             <UI>
-                
+                <StreakCounter/>
             </UI>
         </Page>
     );

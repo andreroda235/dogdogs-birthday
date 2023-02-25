@@ -36,7 +36,7 @@ const AnimationCardFlip = ({type, prize, onAnimationEnd}) => {
                         </div>
                         <div className={classes["flip-card-back"]}>
                             {type === CARD_TYPE_ENEMY && <img src={EnemyIcon} alt={type}/>}
-                            {type === CARD_TYPE_GIFT && <p>{prize}</p>}
+                            {type >= CARD_TYPE_GIFT && <p>{prize}</p>}
                         </div>
                     </div>
                 </div>
