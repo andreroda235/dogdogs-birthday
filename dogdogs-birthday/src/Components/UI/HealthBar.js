@@ -5,13 +5,7 @@ import classes from './HealthBar.module.css';
 
 import healthbar from '../../Assets/Images/dogdog-health-bar.png';
 
-
-const healthStages = 
-    { 1: 'full',
-    0.5: 'half',
-    0.25: 'quarter'}
-
-//maybe unecessary
+//probably unecessary
 const getHealthColor = (health) => {
     if(health <= 100 && health > 50)
         return 'full'
@@ -27,22 +21,19 @@ const calcHealth = (health, maxHealth) => {
 };
 
 const HealthBar = () => {
-
     const health = useSelector(state => state.health);
-    /* const [health, setHealth] = useState(1); */
     const maxHealth = useRef(undefined);
     const [width, setWidth] = useState(undefined);
 
+
     useEffect(() => {
-        console.log();
         let newWidth;
         if(!maxHealth.current){
             const max = document.getElementById('healthbar').offsetWidth;
             maxHealth.current = max;
             newWidth = calcHealth(health, max);
-        }else {
+        } else 
             newWidth = calcHealth(health, maxHealth.current);
-        }
         setWidth(newWidth);
     }, [health]);
 

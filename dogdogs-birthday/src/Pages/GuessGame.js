@@ -6,6 +6,7 @@ import HealthBar from '../Components/UI/HealthBar';
 import classes from './GuessGame.module.css';
 import { generateLevelMatrix } from '../util/Level';
 import { useRef } from 'react';
+import AnimationLayer from '../Components/UI/Animation/AnimationLayer';
 
 const prizes = [
     'Lorem Ipsum',
@@ -54,6 +55,7 @@ const GuessGame = () => {
  
     return (
         <Page gradient>
+            <AnimationLayer/>
             <UI>
                 <HealthBar/>
             </UI>
