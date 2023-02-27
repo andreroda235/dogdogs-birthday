@@ -1,10 +1,12 @@
 
 import classes from './Page.module.css';
 
-const Page = ({children, className, gradient}) => {
+
+
+const Page = ({children, className}) => {
 
     return (
-        <div className={classes.page + ' ' + (gradient && classes['gradient-page']) + ' ' + className}>
+        <div className={classes.page + ' ' + className}>
             {children}
         </div>
     );

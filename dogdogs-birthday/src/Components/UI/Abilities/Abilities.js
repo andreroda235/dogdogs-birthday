@@ -5,15 +5,17 @@ import AbilityCard from './AbilityCard';
 import classes from './Abilities.module.css';
 
 import SasukeImg from '../../../Assets/Images/sasuke.png';
-import EricaImg from '../../../Assets/Images/erica.png';
+import AkamaruImg from '../../../Assets/Images/akamaru.png';
 import ConnectedImg from '../../../Assets/Images/connected.png';
+import { beats } from '../Animation/Beats';
 
 const Abilities = () => {
     const abilityCounter = useSelector(state => state.abilityCounter);
+    const currentStreak = useSelector(state => Math.floor(state.giftStreak/5));
     console.log(abilityCounter);
 
     return (
-        <div className={classes.abilities}>
+        <div className={classes.abilities + ' ' + beats(currentStreak)}>
             <AbilityCard
                 index={1}
                 key="ability-1"
@@ -26,7 +28,7 @@ const Abilities = () => {
                 key="ability-2"
                 isFlipped={abilityCounter >= 2}
             >
-                <img src={EricaImg} alt="sasuke"/>
+                <img src={AkamaruImg} alt="sasuke"/>
             </AbilityCard>
             <AbilityCard
                 index={3}

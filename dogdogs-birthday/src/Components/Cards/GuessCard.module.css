@@ -36,7 +36,14 @@
   .flip-card-front {
     border-radius: 10px;
     background-color: #bbb;    
+  }
+
+  .front-card-gift {
     border: 10px solid var(--cardRed) ;
+  }
+
+  .front-card-enemy {
+    border: 10px solid black ;
   }
 
   .flip-card-front img,
@@ -51,3 +58,4 @@
     color: black;
     transform: rotateY(180deg);
   }
+  

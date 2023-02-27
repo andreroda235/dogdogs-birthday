@@ -2,8 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import {useSelector} from 'react-redux';
 
 import classes from './HealthBar.module.css';
+import beatClasses from './Animation/Beats.module.css';
 
 import healthbar from '../../Assets/Images/dogdog-health-bar.png';
+import { beats } from './Animation/Beats';
 
 //probably unecessary
 const getHealthColor = (health) => {
@@ -22,6 +24,7 @@ const calcHealth = (health, maxHealth) => {
 
 const HealthBar = () => {
     const health = useSelector(state => state.health);
+    const currentStreak = useSelector(state => Math.floor(state.giftStreak/5));
     const maxHealth = useRef(undefined);
     const [width, setWidth] = useState(undefined);
 
@@ -43,7 +46,7 @@ const HealthBar = () => {
 
     return (
         <div className={classes['health-bar']}>
-            <div className={classes['health-bar-inner']}>
+            <div className={classes['health-bar-inner'] + ' ' + beats(currentStreak)}>
                 <div className={classes['health-background']}/>
                 <div id='healthbar' style={width !== undefined ? styles : {}} className={classes.health + ' ' + classes[getHealthColor(health)]}/>
                 <img src={healthbar} alt={health}/>

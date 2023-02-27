@@ -3,7 +3,8 @@ import {createPortal} from "react-dom";
 
 const layers = [
     'AnimationLayer_Card',
-    'AnimationLayer_Ability'
+    'AnimationLayer_Ability',
+    'SoundSystem'
 ];
 
 const Portal = ({ children, to }) => {

@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.game-over {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.game-over h1 {
+    color: RED;
+    font-family: 'PT Sans Caption', sans-serif;
+    font-weight: bolder;
+    font-size: 6rem;
+    margin: 0;
+    z-index: 1000;
+}
+
+.game-over-player,
+.game-over-rip {
+    font-family: 'Great Vibes', cursive;
+}
+
+.game-over-streak {
+    font-family: 'PT Sans Caption', sans-serif;
+}
+.game-over-rip,
+.game-over-player,
+.game-over-streak  {
+    margin: 0;
+    color: white;
+    font-weight: normal;
+    font-size: 3rem;
+}
+
+
+.streak {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.streak img {
+    height: 150px;
+}
+
+.sad-pic img{
+    height: 500px;
+    border-radius: 50%;
+    animation: greyed 10s;
+    animation-delay: 6s;
+    animation-fill-mode: forwards !important
+
+}
+
+.animate {
+    opacity: 0;
+    animation-fill-mode: forwards !important;
+    animation: fadeIn 6s;
+}
+
+.first {
+    animation-delay: 3s;
+}
+
+.second {
+    animation-delay: 6s;
+}
+
+.third {
+    animation-delay: 9s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes greyed {
+    0% { filter: grayscale(0%); }
+    100% { filter: grayscale(100%); }
+}
