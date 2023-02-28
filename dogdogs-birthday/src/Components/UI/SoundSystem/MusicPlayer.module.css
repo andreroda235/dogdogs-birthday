@@ -12,10 +12,28 @@
     z-index: 1000;
     margin: 2rem;
     padding: 0.5rem;
+    animation: fadeOut 1s forwards;
+    opacity: 0;
 }
 
 .music-player input {
     border: none;
     outline: none;
     background-color: transparent;
+    cursor: pointer;
+}
+
+.music-player:hover {
+    animation: fadeIn 1s;
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }

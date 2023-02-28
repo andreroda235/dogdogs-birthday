@@ -1,0 +1,17 @@
+.numbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.big img{
+    height: 180px;
+    width: auto;
+}
+
+.small img{
+    height: 90px;
+    width: auto;
+}

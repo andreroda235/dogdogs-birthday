@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
+
+
+.start-menu {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 100;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.menu h1 {
+    color: white;
+    font-family: 'PT Sans Caption', sans-serif;
+    font-weight: bolder;
+    font-size: 4rem;
+    margin: 0;
+    z-index: 1000;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.group label {
+    color: white;
+    font-family: 'PT Sans Caption', sans-serif;
+    font-weight: bolder;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.group input {
+    background-color: transparent;
+    /* border: 2px solid white; */
+    border: 0;
+    color: white;
+    outline: 0;
+    border-radius: 10px;
+    width: 150px;
+    height: 60px;
+    font-size: larger;
+}
+
+.menu button{
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    outline: 0;
+    border-radius: 10px;
+    width: 150px;
+    height: 60px;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background-color: white;
+    color: black;
+}
+
+.wp {
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+.wp img {
+    border-radius: 50%;
+    display: block;
+    outline: none;
+}
+
+.wp:after {
+    content: "";
+    display: block;
+    width: 103%;
+    height: 103%;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%
+    ,rgb(0, 0, 0) 70%,rgb(0, 0, 0) 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: -5px; left: -25px;
+}
+
+

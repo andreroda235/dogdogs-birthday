@@ -11,6 +11,7 @@ const StreakCounter = () => {
     const radix = Math.floor(streakCounter / 10);
     const digit = streakCounter % 10;
 
+
     return (
         <div className={classes['streak-counter'] + ' ' + beats(currentStreak)}>
             <div className={classes.container}>

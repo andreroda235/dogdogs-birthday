@@ -1,18 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { ANIMATION_TYPE_ABILITY, ANIMATION_TYPE_CARDFLIP, GAMESTATE_GAME_OVER, GAMESTATE_PLAYING, PLAYER_MUSIC, PLAYER_SOUNDEFFECTS } from '../util/constants';
+import { ANIMATION_TYPE_ABILITY, ANIMATION_TYPE_CARDFLIP, GAMESTATE_GAME_OVER, GAMESTATE_PLAYING, GAMESTATE_START_MENU, GAMESTATE_WIN, LEVEL_TOTAL_GIFTS, PLAYER_MUSIC, PLAYER_SOUNDEFFECTS } from '../util/constants';
 
 const initialState = {
-    player: 'DOGDOG',
+    player: 'DogDog',
     health: 100,
+    totalGiftsOpened: 29,
     giftStreak: 0,
     enemyStreak: 0,
-    highestStreak: 0,
+    highestStreak: 29,
     abilityCounter: 0,
     animationLayer_Card: undefined,
     animationLayer_Ability: undefined,
     musicPlayer: undefined,
     soundEffects: undefined,
-    gameState: /* GAMESTATE_GAME_OVER */ GAMESTATE_PLAYING
+    gameState: GAMESTATE_START_MENU
 };
 
 export const gameStateSlice = createSlice({
@@ -42,14 +43,22 @@ export const gameStateSlice = createSlice({
         reward(state, action) {
             state.enemyStreak = 0;
             state.giftStreak++;
+            state.totalGiftsOpened++;                
             if(state.giftStreak > state.highestStreak)
                 state.highestStreak = state.giftStreak;
-            state.abilityCounter = Math.floor(state.giftStreak / 5);
-
-            if(state.abilityCounter >= 1){
-                /* state.musicPlayer.play('../Assets/sound/music/connected.mp3'); */
-                console.log(state.musicPlayer);
+            if(state.totalGiftsOpened === LEVEL_TOTAL_GIFTS){
+                state.gameState = GAMESTATE_WIN;
+                return;
             }
+
+
+            state.abilityCounter = Math.floor(state.giftStreak / 5);
+            
+
+            /* if(state.abilityCounter >= 1){
+                state.musicPlayer.play('../Assets/sound/music/connected.mp3');
+                console.log(state.musicPlayer);
+            } */
         },
 
         /* animationType: ANIMATION_TYPE_CARDFLIP,
@@ -81,11 +90,21 @@ export const gameStateSlice = createSlice({
                 state.soundEffects = payload.player;
             else if(payload.type === PLAYER_MUSIC)
                 state.musicPlayer = payload.player;
+        },
+
+        newGameState(state, action) {
+            state.gameState = action.payload;
+        },
+
+        setPlayerName(state, action) {
+            console.log(action.payload);
+            state.player = action.payload;
         }
     }
 })
 
 // Action creators are generated for each case reducer function
-export const { attack, reward, initAnimationLayer, requestAnimation, initSound } = gameStateSlice.actions
+export const { attack, reward, initAnimationLayer, requestAnimation, initSound,
+    newGameState, setPlayerName } = gameStateSlice.actions;
 
-export default gameStateSlice.reducer
+export default gameStateSlice.reducer;

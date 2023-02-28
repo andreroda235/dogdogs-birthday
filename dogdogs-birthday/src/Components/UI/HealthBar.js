@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import {useSelector} from 'react-redux';
 
 import classes from './HealthBar.module.css';
-import beatClasses from './Animation/Beats.module.css';
 
 import healthbar from '../../Assets/Images/dogdog-health-bar.png';
 import { beats } from './Animation/Beats';
