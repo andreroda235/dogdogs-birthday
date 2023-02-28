@@ -35,7 +35,7 @@ const StartMenu = () => {
                 <h1>Dogdog: The Game</h1>
                 <div className={classes.group}>
                     <label for="player">Player:</label>
-                    <input onChange={changePlayerName} type="text" placeholder='(40 chars max)' name="player" id="player" maxLength={40}/>
+                    <input onChange={changePlayerName} type="text" placeholder='(15 chars max)' name="player" id="player" maxLength={15}/>
                 </div>
                 <button onClick={startGameHandler}>Start Game</button>
             </div>

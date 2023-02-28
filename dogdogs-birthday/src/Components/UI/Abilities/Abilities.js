@@ -12,7 +12,6 @@ import { beats } from '../Animation/Beats';
 const Abilities = () => {
     const abilityCounter = useSelector(state => state.abilityCounter);
     const currentStreak = useSelector(state => Math.floor(state.giftStreak/5));
-    console.log(abilityCounter);
 
     return (
         <div className={classes.abilities + ' ' + beats(currentStreak)}>

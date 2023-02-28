@@ -12,6 +12,7 @@ import connectedWP from '../../Assets/Images/connected-wp.jpg';
 const Background = () => {
     const currentStreak = useSelector(state => Math.floor(state.giftStreak/5));
     const enemyStreak = useSelector(state => state.enemyStreak);
+    const backgroundId = currentStreak <= 3 ? currentStreak : 3;
    /*  const gameState = useSelector(state => state.gameState); */
 
     const background = () => {
@@ -25,8 +26,8 @@ const Background = () => {
             return backgroundData;
         }
         if(currentStreak >= 1){
-            backgroundData.class = classes['background-' + currentStreak];
-            switch(currentStreak){
+            backgroundData.class = classes['background-' + backgroundId];
+            switch(backgroundId){
                 case 1: 
                     backgroundData.image = sasukeWP;
                     break;
@@ -47,7 +48,7 @@ const Background = () => {
 
     return (
         <div className={classes.background + ' ' + backgroundData.class}>
-            {(currentStreak >= 1 || enemyStreak >= 2) && 
+            {(backgroundId >= 1 || enemyStreak >= 2) && 
             <>
                 <img className={classes['character-img']} src={backgroundData.image} alt=""/>
                 <img className={classes.equalizer} src={equalizerGif} alt="" />

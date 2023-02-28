@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 import backDropClasses from './Backdrop.module.css';
@@ -7,13 +7,23 @@ import classes from './GameOver.module.css';
 
 import numbers from '../../util/number-imports';
 import gameOverImage from '../../Assets/Images/game-over.png';
+import { reset, retry } from '../../Redux/gamestate-slice';
 
 const GameOver = () => {
     const player = useSelector(state => state.player);
     const streak = useSelector(state => state.highestStreak);
+    const dispatch = useDispatch();
     
     const radix = Math.floor(streak / 10);
     const digit = streak % 10;
+
+    const retryHandler = () => {
+        dispatch(retry());
+    };
+
+    const backToMenuHandler = () => {
+        dispatch(reset());
+    };
 
     return (
         <div className={classes['game-over'] + ' ' + 
@@ -34,6 +44,13 @@ const GameOver = () => {
              classes.animate + ' ' + classes.second}>
                 <img src={gameOverImage} alt=":("/>
             </div>
+
+            <div className={classes.buttons + ' ' +
+             classes.animate}>
+                <button onClick={retryHandler}>Retry</button>
+                <button onClick={backToMenuHandler}>Back to Menu</button>
+            </div>
+
         </div>
     );
 };

@@ -38,7 +38,6 @@
     font-size: 3rem;
 }
 
-
 .streak {
     display: flex;
     align-items: center;
@@ -56,6 +55,34 @@
     animation-delay: 6s;
     animation-fill-mode: forwards !important
 
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+    gap: 1rem;
+}
+
+.buttons button{
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    outline: 0;
+    border-radius: 10px;
+    width: 150px;
+    height: 60px;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.buttons button:hover{
+    background-color: white;
+    color: black;
 }
 
 .animate {

@@ -30,15 +30,17 @@ const SoundSystem = () => {
             musicPlayer.newTrack(MUSIC_GAME_OVER);
             return;
         }
+        
+        if(gameState > GAMESTATE_CREDITS){
+            musicPlayer.stop();
+            return;
+        }
 
         if(gameState === GAMESTATE_CREDITS) {
             musicPlayer.newTrack(4);
             return;
         }
 
-        if(gameState > GAMESTATE_CREDITS){
-            musicPlayer.stop();
-        }
 
         if(enemyStreak >= 2 && gameState !== GAMESTATE_GAME_OVER) {
             musicPlayer.newTrack(MUSIC_ENEMY_THEME);
