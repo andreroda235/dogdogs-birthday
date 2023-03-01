@@ -20,6 +20,7 @@ const SoundSystem = () => {
     useEffect(() => {
         if(gameState === GAMESTATE_START_MENU){
             musicPlayer.newTrack(MUSIC_MENU, 0.5);
+            musicPlayer.loopMusic(true);
             return;
         }
 
@@ -33,16 +34,17 @@ const SoundSystem = () => {
             return;
         }
         
+        
+        if(gameState === GAMESTATE_CREDITS) {
+            musicPlayer.newTrack(4);
+            musicPlayer.loopMusic(false);
+            return;
+        }
+        
         if(gameState > GAMESTATE_CREDITS){
             musicPlayer.stop();
             return;
         }
-
-        if(gameState === GAMESTATE_CREDITS) {
-            musicPlayer.newTrack(4);
-            return;
-        }
-
 
         if(enemyStreak >= 2 && gameState !== GAMESTATE_GAME_OVER) {
             musicPlayer.newTrack(MUSIC_ENEMY_THEME);

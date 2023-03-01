@@ -8,13 +8,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 3rem;
+    text-align: center;
 }
 
 .credits p {
-    -webkit-animation: fadeinout 5s linear infinite;
-    animation: fadeinout 5s linear infinite;
-    -webkit-animation-delay: 3s;
-    animation-delay: 3s;
+    -webkit-animation: fadeinout 6s linear infinite;
+    animation: fadeinout 6s linear infinite;
+    /* -webkit-animation-delay: 3s; */
+   /*  animation-delay: 3s; */
     opacity: 0;
     font-family: 'PT Sans Caption', sans-serif;
     font-weight: bolder;
