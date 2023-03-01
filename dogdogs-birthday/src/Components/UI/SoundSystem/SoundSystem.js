@@ -20,7 +20,6 @@ const SoundSystem = () => {
     useEffect(() => {
         if(gameState === GAMESTATE_START_MENU){
             musicPlayer.newTrack(MUSIC_MENU, 0.5);
-            musicPlayer.loopMusic(true);
             return;
         }
 
@@ -37,7 +36,6 @@ const SoundSystem = () => {
         
         if(gameState === GAMESTATE_CREDITS) {
             musicPlayer.newTrack(4);
-            musicPlayer.loopMusic(false);
             return;
         }
         
