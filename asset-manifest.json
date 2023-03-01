@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/dogdogs-birthday/static/css/main.7b2fe7cc.css",
-    "main.js": "/dogdogs-birthday/static/js/main.e59001ec.js",
+    "main.js": "/dogdogs-birthday/static/js/main.cf15902b.js",
     "static/media/enemy-theme.mp3": "/dogdogs-birthday/static/media/enemy-theme.a59c03265b061084e029.mp3",
     "static/media/sasuke.mp3": "/dogdogs-birthday/static/media/sasuke.a1395e72137d80a11759.mp3",
     "static/media/connected.mp3": "/dogdogs-birthday/static/media/connected.e8cde6b559c9a8c61fc0.mp3",
@@ -33,10 +33,10 @@
     "static/media/music-values.gif": "/dogdogs-birthday/static/media/music-values.725c21aba6aa906ed875.gif",
     "index.html": "/dogdogs-birthday/index.html",
     "main.7b2fe7cc.css.map": "/dogdogs-birthday/static/css/main.7b2fe7cc.css.map",
-    "main.e59001ec.js.map": "/dogdogs-birthday/static/js/main.e59001ec.js.map"
+    "main.cf15902b.js.map": "/dogdogs-birthday/static/js/main.cf15902b.js.map"
   },
   "entrypoints": [
     "static/css/main.7b2fe7cc.css",
-    "static/js/main.e59001ec.js"
+    "static/js/main.cf15902b.js"
   ]
 }
