@@ -12,7 +12,7 @@ export const useMusic = (trackCollection, loop) => {
                 setPlaying(false);
                 return;
             }
-            /* audio.play(); */
+            audio.play();
         });
         return () => {
             audio.removeEventListener('ended', () => {
