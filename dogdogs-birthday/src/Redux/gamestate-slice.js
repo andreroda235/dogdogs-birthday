@@ -28,12 +28,13 @@ export const gameStateSlice = createSlice({
     initialState: initialState,
     reducers: {
 
+        //
         reset(state, action) {
             return initialState;
         },
 
         retry(state, action) {
-            return {...initialState, gameState: GAMESTATE_PLAYING};
+            return { ...initialState, player: state.player,  gameState: GAMESTATE_PLAYING};
         },
 
         attack(state, action) {
