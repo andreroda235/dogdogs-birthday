@@ -6,7 +6,7 @@ import GuessGame from "./Pages/GuessGame";
 
 const App = () => {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <main>
             <Content>
               <SoundSystem/>
