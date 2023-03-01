@@ -14,10 +14,12 @@ const SoundSystem = () => {
     const gameState = useSelector(state => state.gameState);
     const enemyStreak = useSelector(state => state.enemyStreak);
     const soundEffects = useMusic(SFX, false);
+    const enemySFX = useSelector(state => state.playEnemySFX);
+    const abilityCounter = useSelector(state => state.abilityCounter);
 
     useEffect(() => {
         if(gameState === GAMESTATE_START_MENU){
-            musicPlayer.newTrack(MUSIC_MENU);
+            musicPlayer.newTrack(MUSIC_MENU, 0.5);
             return;
         }
 
@@ -60,10 +62,24 @@ const SoundSystem = () => {
             soundEffects.newTrack(SFX_ENEMY);
         } */
 
-        if(giftStreak === 0 && enemyStreak >= 1){
-            soundEffects.paralelTrack(SFX_STREAK_KILL);
+        if(enemySFX) {
+            if(abilityCounter === 0){
+                if(musicPlayer.playing)
+                    musicPlayer.halveVolume();
+                soundEffects.newTrack(SFX_ENEMY, 0.3);
+                return;
+            }
         }
-    }, [enemyStreak, gameState]); 
+
+        if(!enemySFX && soundEffects.playing){
+            soundEffects.stop();
+            return
+        }
+
+        if(giftStreak === 0 && enemyStreak >= 1 && musicPlayer.playing){
+            soundEffects.newTrack(SFX_STREAK_KILL);
+        }
+    }, [enemyStreak, gameState, enemySFX, abilityCounter]); 
 
     const playSFX = (sfx) => {
         soundEffects.newTrack(sfx);

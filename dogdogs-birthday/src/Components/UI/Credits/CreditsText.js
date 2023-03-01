@@ -31,7 +31,7 @@ const CreditsText = () => {
 
         const timeout = setTimeout(() => {
           setCreditIndex(prevState => prevState + 1);
-        }, creditIndex === 0 ? 8000 : 5000)
+        }, creditIndex === 0 ? 8000 : 5000);
     
         return () => clearTimeout(timeout)
     

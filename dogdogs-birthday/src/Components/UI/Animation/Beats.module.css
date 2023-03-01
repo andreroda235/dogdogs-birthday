@@ -1,8 +1,11 @@
 
+.beat-0 {
+    animation: 3s ease 0s infinite beat2;
+}
+
 .beat-1 {
     animation-delay: 0.5s;
-    animation: 1.5s ease 0s infinite beat;
-    
+    animation: 1.5s ease 0s infinite beat;   
 }
 
 .beat-2, 
@@ -13,12 +16,15 @@
 .head-bob-1 {
     animation: 0.75s ease 0s infinite headBob;
 }
-.head-bob-2 {
-    animation: 0.45s ease 0s infinite headBob;
-}
+.head-bob-2,
 .head-bob-3 {
     animation: 0.45s ease 0s infinite headBob;
 }
+
+.head-bob-0 {
+    animation: 1.5s ease 0s infinite headBob2;
+}
+
 
 @keyframes headBob {
     0%, 100% { transform: translate3d(0px, 0px, 0px); }
@@ -28,4 +34,13 @@
 @keyframes beat {
     0%, 50%, 100% { transform: scale(1, 1); }
     30%, 80% { transform: scale(0.92, 0.95); }
+}
+@keyframes headBob2 {
+    0%, 100% { transform: translate3d(0px, 0px, 0px); }
+    50% { transform: translate3d(5px, 5px, 5px); }
+}
+
+@keyframes beat2 {
+    0%, 50%, 100% { transform: scale(1, 1); }
+    30%, 80% { transform: scale(0.95, 0.95); }
 }

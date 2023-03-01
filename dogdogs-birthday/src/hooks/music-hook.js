@@ -10,24 +10,38 @@ export const useMusic = (trackCollection, loop) => {
             if(!loop){
                 audio.pause();
                 setPlaying(false);
+                return;
             }
             audio.play();
         });
         return () => {
-            audio.removeEventListener('ended', () => setPlaying(false));
+            audio.removeEventListener('ended', () => {
+                audio.pause();
+                setPlaying(false);
+            });
         };
     }, []);
 
 
-    const newTrack = useCallback((src) => {
+    const newTrack = useCallback((src, newVolume, onPlayEnd) => {
         audio.src = tracks[src];
-        audio.play().catch(console.log('error'));
+        audio.play().then(() => {if(onPlayEnd)onPlayEnd();}).catch(console.log('error'));
+        if(newVolume)
+            audio.volume = newVolume;
         setPlaying(true);
     }, []);
 
     /* const loop = () => {
         //TODO
     } */
+
+    const halveVolume = useCallback(() => {
+        audio.volume = audio.volume / 2;
+    }, []);
+
+    const doubleVolume = useCallback(() => {
+        audio.volume = audio.volume * 2;
+    }, []);
 
     const paralelTrack = useCallback((src) => {
         const newAudio = new Audio();
@@ -44,5 +58,5 @@ export const useMusic = (trackCollection, loop) => {
         setPlaying(false);
     }, [audio]);
 
-    return {newTrack, loop, stop, playing, changeVolume, paralelTrack};
+    return {newTrack, loop, stop, playing, changeVolume, paralelTrack, halveVolume, doubleVolume};
 };

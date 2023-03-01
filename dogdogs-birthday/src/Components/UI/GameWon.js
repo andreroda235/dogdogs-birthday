@@ -8,17 +8,22 @@ import backDropClasses from './Backdrop.module.css';
 import victoryImg from '../../Assets/Images/victory.png';
 import { newGameState } from '../../Redux/gamestate-slice';
 import { GAMESTATE_CREDITS } from '../../util/constants';
+import { saveAs } from 'file-saver';
 
 const GameWon = () => {
 
     const dispatch = useDispatch();
     const player = useSelector(state => state.player);
     const streak = useSelector(state => state.highestStreak);
+    const giftCollection = useSelector(state => state.gifts);
     
     const radix = Math.floor(streak / 10);
     const digit = streak % 10;
 
     const continueHandler = () => {
+        const blob = new Blob(giftCollection, {type: "text/plain;charset=utf-8" });
+        saveAs(blob, "HAPPY-BIRTHDAY-DOGDOG.txt");
+
         dispatch(newGameState(GAMESTATE_CREDITS));
     };
 

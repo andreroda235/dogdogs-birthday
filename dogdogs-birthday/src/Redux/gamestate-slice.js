@@ -5,8 +5,13 @@ const initialState = {
     player: '',
     health: 100,
     totalGiftsOpened: 0,
+    playEnemySFX: false,
     giftStreak: 0,
     enemyStreak: 0,
+    streak1: false,
+    streak2: false,
+    streak3: false,
+    durationStacking: 0,
     highestStreak: 0,
     abilityCounter: 0,
     abilityStreak: 0,
@@ -14,6 +19,7 @@ const initialState = {
     animationLayer_Ability: undefined,
     musicPlayer: undefined,
     soundEffects: undefined,
+    gifts: [],
     gameState: GAMESTATE_START_MENU
 };
 
@@ -27,24 +33,27 @@ export const gameStateSlice = createSlice({
         },
 
         retry(state, action) {
-            state.health = 100;
-            state.totalGiftsOpened = 0;
-            state.giftStreak = 0;
-            state.enemyStreak = 0;
-            state.highestStreak = 0;
-            state.abilityCounter = 0;
-            state.abilityStreak = 0;
-            state.gameState = GAMESTATE_PLAYING;
+            return {...initialState, gameState: GAMESTATE_PLAYING};
         },
 
         attack(state, action) {
             if(state.abilityCounter > 0){
+                if(state.streak1){
+                    state.streak1 = false;
+                } else if(state.streak2) {
+                    state.streak2 = false;
+                }
+                else if(state.streak3) {
+                    state.streak3 = false;
+                }
+
                 state.abilityCounter = state.abilityCounter - 1 === 0 ? 0 : state.abilityCounter - 1;
                 return;
             }
 
             state.enemyStreak++;
             state.giftStreak = 0;
+           /*  state.abilityStreak = 0; */
             let remainingHealth = state.health - state.enemyStreak*action.payload.damage;
             if(remainingHealth < 0) remainingHealth = 0;
                 state.health = remainingHealth;
@@ -58,9 +67,22 @@ export const gameStateSlice = createSlice({
             state.totalGiftsOpened++;
             state.abilityStreak++;
 
-            if(state.abilityStreak === 5) {
+            /* if(state.abilityStreak === 5) {
                 state.abilityCounter++;
                 state.abilityStreak = 0;
+            } */
+
+            if(state.giftStreak === 5){
+                state.streak1 = true;
+                state.abilityCounter++;
+            }
+            else if(state.giftStreak === 10){
+                state.streak2 = true;
+                state.abilityCounter++;
+            }
+            else if(state.giftStreak === 15){
+                state.streak3 = true;
+                state.abilityCounter++;
             }
             
             if(state.giftStreak > state.highestStreak)
@@ -109,12 +131,29 @@ export const gameStateSlice = createSlice({
         setPlayerName(state, action) {
             console.log(action.payload);
             state.player = action.payload;
+        },
+
+        playEnemySFX(state, action) {
+            state.playEnemySFX = true;
+        },
+
+        resetPlayEnemySFX(state, action) {
+            state.playEnemySFX = false;
+        },
+
+        saveGift(state, action) {
+            state.gifts.push(action.payload);
+        },
+
+        updateCurrentCardDuration(state, action) {
+            state.durationStacking = action.payload;
         }
     }
 })
 
 // Action creators are generated for each case reducer function
 export const { attack, reward, initAnimationLayer, requestAnimation, initSound,
-    newGameState, setPlayerName, reset, retry } = gameStateSlice.actions;
+    newGameState, setPlayerName, reset, retry, playEnemySFX, resetPlayEnemySFX,
+    saveGift, updateCurrentCardDuration } = gameStateSlice.actions;
 
 export default gameStateSlice.reducer;

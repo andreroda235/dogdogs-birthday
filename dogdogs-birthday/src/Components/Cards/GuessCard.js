@@ -56,7 +56,7 @@ const GuessCard = ({index, turned, disabled, onFlip, prize, type}) => {
             onClick={flipCardHandler}>
             <div className={classes["flip-card-inner"]}
                 style={isFlipped ? styles : undefined}>
-                <div className={classes["flip-card-front"] + ' ' + classes['front-card-gift']/*+ ' ' + (type === ENEMY ? classes['front-card-enemy'] : classes['front-card-gift'] )*/}>
+                <div className={classes["flip-card-front"] /*+ ' ' + classes['front-card-gift']*/+ ' ' + (type === ENEMY ? classes['front-card-enemy'] : classes['front-card-gift'] )}>
                     <img src={QuestionMarkIcon} alt="?"/>
                 </div>
                 <div className={classes["flip-card-back"]}>
