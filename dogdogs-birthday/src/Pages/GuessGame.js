@@ -60,11 +60,9 @@ const prizes = [
 const GuessGame = () => {
     const gameState = useSelector(state => state.gameState);
 
-
     const levelMatrix = useRef(undefined);
     if(!levelMatrix.current)
         levelMatrix.current = generateLevelMatrix(6, 6, 6);
- 
 
     return (
         <Page>
