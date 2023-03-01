@@ -2,7 +2,7 @@
   "name": "dogdogs-birthday",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://andreroda235.github.io/dogdogs-birthday",
+  "homepage": "https://andreroda235.github.io/dogdogs-birthday/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "file-saver": "^2.0.5",

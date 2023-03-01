@@ -11,7 +11,7 @@ const App = () => {
             <Content>
               <SoundSystem/>
                 <Routes>
-                  <Route path="https://andreroda235.github.io/dogdogs-birthday/" exact element={<GuessGame/>}/>
+                  <Route path="/" exact element={<GuessGame/>}/>
                 </Routes>
             </Content>
         </main>
