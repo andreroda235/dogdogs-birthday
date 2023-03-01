@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/dogdogs-birthday/static/css/main.49440adf.css",
-    "main.js": "/dogdogs-birthday/static/js/main.6bcdc802.js",
+    "main.css": "/dogdogs-birthday/static/css/main.7b2fe7cc.css",
+    "main.js": "/dogdogs-birthday/static/js/main.e59001ec.js",
     "static/media/enemy-theme.mp3": "/dogdogs-birthday/static/media/enemy-theme.a59c03265b061084e029.mp3",
-    "static/media/connected.mp3": "/dogdogs-birthday/static/media/connected.73f9df93ff76d68ec525.mp3",
     "static/media/sasuke.mp3": "/dogdogs-birthday/static/media/sasuke.a1395e72137d80a11759.mp3",
+    "static/media/connected.mp3": "/dogdogs-birthday/static/media/connected.e8cde6b559c9a8c61fc0.mp3",
     "static/media/one-more-thing.mp4": "/dogdogs-birthday/static/media/one-more-thing.3f2d5e71d31d5ed9377f.mp4",
     "static/media/akamaru-loop.mp3": "/dogdogs-birthday/static/media/akamaru-loop.f719ea7bdd77823e5df3.mp3",
     "static/media/sasuke-loop.mp3": "/dogdogs-birthday/static/media/sasuke-loop.d9d5444da74d8a5175b1.mp3",
@@ -32,11 +32,11 @@
     "static/media/akamaru-wp.jpg": "/dogdogs-birthday/static/media/akamaru-wp.a3bb4bfd43bab3dfb10d.jpg",
     "static/media/music-values.gif": "/dogdogs-birthday/static/media/music-values.725c21aba6aa906ed875.gif",
     "index.html": "/dogdogs-birthday/index.html",
-    "main.49440adf.css.map": "/dogdogs-birthday/static/css/main.49440adf.css.map",
-    "main.6bcdc802.js.map": "/dogdogs-birthday/static/js/main.6bcdc802.js.map"
+    "main.7b2fe7cc.css.map": "/dogdogs-birthday/static/css/main.7b2fe7cc.css.map",
+    "main.e59001ec.js.map": "/dogdogs-birthday/static/js/main.e59001ec.js.map"
   },
   "entrypoints": [
-    "static/css/main.49440adf.css",
-    "static/js/main.6bcdc802.js"
+    "static/css/main.7b2fe7cc.css",
+    "static/js/main.e59001ec.js"
   ]
 }
